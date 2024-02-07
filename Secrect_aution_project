@@ -1,0 +1,27 @@
+from replit import clear
+from art import logo
+print(logo)
+bidder_details = {}
+biding_finished = False
+
+def highest_aution(bidder_details):
+    highest_bid = 0
+    winner = ""
+    for bid in bidder_details:
+        bid_amount = bidder_details[bid]
+        if bid_amount > highest_bid:
+            highest_bid = bid_amount
+            winner = bid
+    print(f"The winner is {winner} and the highest bid is {highest_bid}")
+
+while not biding_finished:
+    name = input("Please enter your name below.\n")
+    bid = int(input("Please enter your bid\n$"))
+    bidder_details[name] = bid
+    decision = input("Ask if other user is there to bid(yes or no")
+    
+    if decision == "no":
+        biding_finished = True
+        highest_aution(bidder_details)
+    elif decision == "yes":
+        clear()
